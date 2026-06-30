@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primera Comunión · Alexander & Eithan</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Jost:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ PORTADA ============ -->
+  <section class="envelope-screen" id="envelope-screen">
+    <div class="envelope-bg"></div>
+    <div class="envelope-overlay"></div>
+
+    <p class="eyebrow eyebrow-light">Nuestra Primera Comunión</p>
+    <h1 class="cover-names">Alexander <span>&amp;</span> Eithan</h1>
+    <p class="cover-date">16 de Agosto, 2026</p>
+
+    <button class="seal-btn" id="openBtn" aria-label="Abrir invitación">
+      <span class="seal-ring"></span>
+      <span class="seal-ring seal-ring-2"></span>
+      <span class="seal-cross">✝</span>
+    </button>
+    <p class="tap-hint">Toca para abrir tu invitación</p>
+  </section>
+
+  <!-- ============ INVITACIÓN ============ -->
+  <main id="invite" class="invite hidden">
+
+    <!-- VERSÍCULO -->
+    <section class="section verse">
+      <div class="divider reveal" aria-hidden="true"></div>
+      <p class="verse-text reveal">
+        Dejen que los niños se acerquen a mí,<br />
+        porque el reino de los cielos<br />
+        pertenece a quienes son como ellos.
+      </p>
+      <p class="verse-ref reveal">Mateo 19:14</p>
+      <div class="divider reveal" aria-hidden="true"></div>
+    </section>
+
+    <!-- NIÑOS -->
+    <section class="section kids">
+      <div class="photo-frame reveal">
+        <span class="photo-placeholder">Foto de<br />Alexander &amp; Eithan</span>
+      </div>
+      <h2 class="kids-names reveal">Alexander <span>&amp;</span> Eithan</h2>
+      <p class="kids-sub reveal">[Nombre completo de Alexander] · [Nombre completo de Eithan]</p>
+      <p class="kids-note reveal">reciben por primera vez la Sagrada Eucaristía</p>
+    </section>
+
+    <!-- PAPÁS -->
+    <section class="section family">
+      <p class="eyebrow reveal">Con la bendición de</p>
+      <h2 class="section-title reveal">Nuestros Papás</h2>
+      <div class="family-card reveal single">
+        <p class="family-name">Pendiente por anotar</p>
+      </div>
+    </section>
+
+    <!-- PADRINOS -->
+    <section class="section family alt">
+      <p class="eyebrow reveal">Y el cariño de</p>
+      <h2 class="section-title reveal">Nuestros Padrinos</h2>
+      <div class="family-card reveal single">
+        <p class="family-name">Patricia Huerta Méndez</p>
+        <p class="family-name">Rafael Domínguez Viveros</p>
+      </div>
+    </section>
+
+    <!-- ITINERARIO -->
+    <section class="section itinerary">
+      <p class="eyebrow reveal">Así será el día</p>
+      <h2 class="section-title reveal">Itinerario</h2>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <p class="timeline-time">1:00 pm</p>
+            <p class="timeline-label">Ceremonia</p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <p class="timeline-time">4:30 pm</p>
+            <p class="timeline-label">Recepción</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUENTA REGRESIVA -->
+    <section class="section countdown-section">
+      <p class="eyebrow reveal">Faltan</p>
+      <div class="countdown reveal" id="countdown">
+        <div class="cd-item"><span id="cd-days">00</span><small>Días</small></div>
+        <div class="cd-item"><span id="cd-hours">00</span><small>Horas</small></div>
+        <div class="cd-item"><span id="cd-min">00</span><small>Min</small></div>
+        <div class="cd-item"><span id="cd-sec">00</span><small>Seg</small></div>
+      </div>
+    </section>
+
+    <!-- DÓNDE Y CUÁNDO -->
+    <section class="section event">
+      <p class="eyebrow reveal">¿Dónde y cuándo?</p>
+      <h2 class="section-title reveal">El Gran Día</h2>
+
+      <div class="event-card reveal">
+        <h3>Ceremonia</h3>
+        <p class="event-place">Parroquia de San Hipólito Xochiltenango</p>
+        <p class="event-time">1:00 pm</p>
+        <a class="btn-outline" href="https://maps.app.goo.gl/RP14sM6ZtcdvTY9X6?g_st=aw" target="_blank" rel="noopener">Ver ubicación</a>
+      </div>
+
+      <div class="event-card reveal">
+        <h3>Recepción</h3>
+        <p class="event-place">Salón Social MB</p>
+        <p class="event-time">4:30 pm</p>
+        <a class="btn-outline" href="https://maps.app.goo.gl/WCvRe4wVxzwn2bXs9?g_st=aw" target="_blank" rel="noopener">Ver ubicación</a>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section class="section gallery">
+      <p class="eyebrow reveal">Un poquito de nosotros</p>
+      <h2 class="section-title reveal">Galería</h2>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item"><span>Foto 1</span></div>
+        <div class="gallery-item"><span>Foto 2</span></div>
+        <div class="gallery-item"><span>Foto 3</span></div>
+      </div>
+    </section>
+
+    <!-- CONFIRMACIÓN -->
+    <section class="section rsvp">
+      <p class="eyebrow reveal">Por favor confirma</p>
+      <h2 class="section-title reveal">Tu Asistencia</h2>
+      <div class="rsvp-buttons reveal">
+        <a class="btn-fill" href="https://api.whatsapp.com/send?phone=522491157608&text=Hola%2C%20S%C3%AD%20asistir%C3%A9%20a%20la%20Primera%20Comuni%C3%B3n%20de%20Alexander%20y%20Eithan." target="_blank" rel="noopener">Sí, asistiré</a>
+        <a class="btn-outline" href="https://api.whatsapp.com/send?phone=522491157608&text=Hola%2C%20Lo%20siento%2C%20NO%20podr%C3%A9%20asistir%20a%20la%20Primera%20Comuni%C3%B3n%20de%20Alexander%20y%20Eithan." target="_blank" rel="noopener">No podré asistir</a>
+      </div>
+    </section>
+
+    <footer class="footer reveal">
+      <p>Alexander &amp; Eithan · 16 de Agosto 2026</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

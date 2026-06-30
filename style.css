@@ -1,0 +1,403 @@
+/* =========================================================
+   PRIMERA COMUNIÓN — Alexander & Eithan
+   Paleta: beige · azul tenue · negro
+   ========================================================= */
+
+/* ---------- 1. VARIABLES ---------- */
+:root {
+  --cream:      #F7F2E7;
+  --cream-deep: #EFE3CC;
+  --blue:       #8FB4C9;
+  --blue-light: #D7E7EE;
+  --blue-deep:  #4F7388;
+  --ink:        #1C1C1A;
+  --white:      #FFFFFF;
+
+  --font-script: 'Mrs Saint Delafield', cursive;
+  --font-serif:  'Cormorant Garamond', serif;
+  --font-sans:   'Jost', sans-serif;
+
+  --section-pad: 5.5rem 1.5rem;
+  --max-width: 640px;
+}
+
+/* ---------- 2. RESET ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+.hidden { display: none !important; }
+
+/* ---------- 3. TYPE UTILITIES ---------- */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+  margin-bottom: 0.6rem;
+}
+.eyebrow-light { color: var(--blue-light); }
+
+.section-title {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 8vw, 3.4rem);
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.divider {
+  width: 70px;
+  height: 1px;
+  background: var(--blue);
+  margin: 1.75rem auto;
+  position: relative;
+}
+.divider::before {
+  content: "✝";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--cream);
+  padding: 0 0.6rem;
+  color: var(--blue-deep);
+  font-size: 0.9rem;
+}
+
+/* ---------- 4. PORTADA ---------- */
+.envelope-screen {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.envelope-bg {
+  position: absolute;
+  inset: 0;
+  background: url('portada.jpg') center/cover no-repeat;
+  z-index: 0;
+}
+.envelope-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(15, 25, 35, 0.45) 0%,
+    rgba(40, 60, 75, 0.25) 45%,
+    rgba(15, 25, 35, 0.6) 100%);
+  z-index: 1;
+}
+.envelope-screen > *:not(.envelope-bg):not(.envelope-overlay) {
+  position: relative;
+  z-index: 2;
+}
+
+.cover-names {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(4rem, 18vw, 7.5rem);
+  color: var(--white);
+  line-height: 1;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.45);
+  margin: 0.5rem 0 1rem;
+}
+.cover-names span { color: var(--blue-light); }
+
+.cover-date {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0.9;
+  margin-bottom: 3rem;
+}
+
+.seal-btn {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--blue-light), var(--blue) 70%);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(79, 115, 136, 0.45);
+  animation: pulse 2.6s ease-in-out infinite;
+  transition: transform 0.25s ease;
+}
+.seal-btn:hover { transform: scale(1.07); }
+.seal-btn:active { transform: scale(0.95); }
+
+.seal-ring {
+  position: absolute;
+  inset: -8px;
+  border: 1.5px solid var(--white);
+  border-radius: 50%;
+  opacity: 0.55;
+}
+.seal-ring-2 {
+  inset: -16px;
+  opacity: 0.3;
+  animation: spin 12s linear infinite;
+  border-style: dashed;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.seal-cross {
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  color: var(--white);
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 8px 28px rgba(79, 115, 136, 0.45); }
+  50%      { box-shadow: 0 8px 36px rgba(79, 115, 136, 0.75); }
+}
+
+.tap-hint {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  opacity: 0.85;
+}
+
+/* ---------- 5. SECTIONS (general) ---------- */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--section-pad);
+  text-align: center;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- 6. VERSÍCULO ---------- */
+.verse { max-width: 520px; }
+.verse-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 5vw, 1.9rem);
+  color: var(--ink);
+  line-height: 1.5;
+}
+.verse-ref {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+}
+
+/* ---------- 7. NIÑOS ---------- */
+.photo-frame {
+  width: 230px;
+  height: 230px;
+  margin: 0 auto 2rem;
+  border-radius: 50%;
+  border: 3px solid var(--blue);
+  background: var(--cream-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.photo-placeholder {
+  font-size: 0.8rem;
+  color: var(--ink);
+  opacity: 0.5;
+  text-align: center;
+}
+.kids-names {
+  font-family: var(--font-script);
+  font-size: clamp(2.6rem, 9vw, 3.6rem);
+  color: var(--blue-deep);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.kids-names span { color: var(--ink); font-size: 0.6em; }
+.kids-sub { font-size: 0.85rem; opacity: 0.7; margin-bottom: 0.5rem; }
+.kids-note { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; }
+
+/* ---------- 8. FAMILIA ---------- */
+.family.alt { background: var(--cream-deep); max-width: 100%; }
+.family-card.single {
+  background: var(--white);
+  border: 1px solid var(--blue-light);
+  border-radius: 14px;
+  padding: 1.75rem;
+  max-width: 360px;
+  margin: 0 auto;
+}
+.family-name {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin: 0.2rem 0;
+}
+
+/* ---------- 9. ITINERARIO ---------- */
+.timeline {
+  max-width: 320px;
+  margin: 0 auto;
+  text-align: left;
+}
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 14px;
+  width: 1px;
+  height: calc(100% - 4px);
+  background: var(--blue);
+  opacity: 0.5;
+}
+.timeline-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--blue-deep);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+.timeline-time {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--blue-deep);
+  font-size: 1.1rem;
+}
+.timeline-label {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ---------- 10. COUNTDOWN ---------- */
+.countdown-section { background: var(--blue-deep); max-width: 100%; }
+.countdown-section .eyebrow { color: var(--blue-light); }
+.countdown { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.cd-item {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px;
+  padding: 1rem 0.5rem;
+  width: 78px;
+}
+.cd-item span {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--white);
+}
+.cd-item small {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-light);
+}
+
+/* ---------- 11. EVENTO ---------- */
+.event-card {
+  background: var(--white);
+  border: 1px solid var(--blue-light);
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.event-card h3 {
+  font-family: var(--font-script);
+  font-size: 1.8rem;
+  color: var(--blue-deep);
+  margin-bottom: 0.4rem;
+}
+.event-place { font-weight: 700; margin-bottom: 0.25rem; }
+.event-time { color: var(--blue-deep); font-size: 0.9rem; margin-bottom: 1.25rem; }
+
+/* ---------- 12. BOTONES ---------- */
+.btn-outline, .btn-fill {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.btn-outline { border: 1.5px solid var(--blue-deep); color: var(--blue-deep); }
+.btn-outline:hover { background: var(--blue-deep); color: var(--white); }
+.btn-fill { background: var(--blue-deep); color: var(--white); }
+.btn-fill:hover { background: var(--ink); transform: translateY(-2px); }
+
+/* ---------- 13. GALERÍA ---------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+.gallery-item {
+  aspect-ratio: 1;
+  background: var(--cream-deep);
+  border: 1px solid var(--blue-light);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+/* ---------- 14. RSVP ---------- */
+.rsvp-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* ---------- 15. FOOTER ---------- */
+.footer {
+  text-align: center;
+  padding: 3rem 1.5rem 4rem;
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  color: var(--blue-deep);
+}
+
+/* ---------- 16. RESPONSIVE ---------- */
+@media (min-width: 600px) {
+  .event { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .event .eyebrow, .event .section-title { grid-column: 1 / -1; }
+}
