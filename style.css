@@ -406,4 +406,12 @@ a { text-decoration: none; color: inherit; }
 @media (min-width: 600px) {
   .event { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   .event .eyebrow, .event .section-title { grid-column: 1 / -1; }
+
+   .kids-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%; /* ajusta este % para subir o bajar el encuadre */
+  border-radius: 50%;
+}
 }
